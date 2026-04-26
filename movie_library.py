@@ -1,10 +1,3 @@
-"""
-Movie Library — Личная кинотека
-Автор: Иван Петров
-Описание: GUI-приложение для хранения информации о фильмах
-          с фильтрацией, сохранением в JSON и поддержкой Git.
-"""
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 import json
@@ -14,9 +7,7 @@ from datetime import datetime
 DATA_FILE = "movies.json"
 
 
-# ─────────────────────────────────────────────
 #  Работа с данными (JSON)
-# ─────────────────────────────────────────────
 
 def load_movies() -> list[dict]:
     if os.path.exists(DATA_FILE):
@@ -33,9 +24,7 @@ def save_movies(movies: list[dict]) -> None:
         json.dump(movies, f, ensure_ascii=False, indent=2)
 
 
-# ─────────────────────────────────────────────
 #  Валидация
-# ─────────────────────────────────────────────
 
 def validate_year(value: str) -> tuple[bool, str]:
     try:
@@ -58,9 +47,7 @@ def validate_rating(value: str) -> tuple[bool, str]:
     return True, ""
 
 
-# ─────────────────────────────────────────────
 #  Главное окно
-# ─────────────────────────────────────────────
 
 class MovieLibraryApp(tk.Tk):
     GENRES = [
@@ -79,8 +66,8 @@ class MovieLibraryApp(tk.Tk):
 
     def __init__(self):
         super().__init__()
-        self.title("🎬 Movie Library — Личная кинотека")
-        self.geometry("960x640")
+        self.title("Movie Library")
+        self.geometry("1280x980")
         self.resizable(True, True)
         self.configure(bg="#0f0f1a")
         self.movies: list[dict] = load_movies()
@@ -139,10 +126,10 @@ class MovieLibraryApp(tk.Tk):
     def _build_header(self):
         hdr = tk.Frame(self, bg="#0f0f1a")
         hdr.pack(fill="x", padx=24, pady=(20, 4))
-        tk.Label(hdr, text="🎬 MOVIE LIBRARY",
+        tk.Label(hdr, text="MOVIE LIBRARY",
                  bg="#0f0f1a", fg="#a78bfa",
                  font=("Courier New", 22, "bold")).pack(side="left")
-        tk.Label(hdr, text="Личная кинотека",
+        tk.Label(hdr, text="🤣🤣🤣",
                  bg="#0f0f1a", fg="#6b7280",
                  font=("Courier New", 11)).pack(side="left", padx=12, pady=6)
 
