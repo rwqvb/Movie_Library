@@ -100,4 +100,3 @@ movie_library/
 git add .
 git commit -m "feat: добавить новый фильм"
 ```
-skebobskr
